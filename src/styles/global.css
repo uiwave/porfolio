@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("/fonts/Fredoka-VariableFont_wdth,wght.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@theme {
+  --font-heading: "Fredoka", sans-serif;
+  --font-sans: "Fredoka", sans-serif;
+}
