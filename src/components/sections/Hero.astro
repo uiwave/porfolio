@@ -3,6 +3,8 @@ import { Image } from "astro:assets";
 import profileImage from "@/assets/imgs/profile.jpg";
 import GithubIcon from "@/assets/icons/github.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
+import CV from "@/assets/icons/readdotcv.svg";
+import { SOCIAL_LINKS } from "@/const";
 ---
 
 <section
@@ -48,33 +50,40 @@ import LinkedinIcon from "@/assets/icons/linkedin.svg";
           </strong>. Me enfoco en resolver problemas reales con código limpio y
           UI/UX intuitivo.
         </p>
-        <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <a
             href="#proyectos"
             class="inline-flex items-center justify-center px-6 h-12 bg-primary border-2 border-border text-primary-foreground font-bold text-sm uppercase shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Ver Proyectos
           </a>
-          <div class="flex gap-2">
-            <a
-              href="https://github.com/uiwave"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar el perfil de GitHub de Erick"
-              class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-            >
-              <GithubIcon class="w-5 h-5" />
-            </a>
-            <a
-              href="https://linkedin.com/in/tu-usuario"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar el perfil de LinkedIn de Erick"
-              class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-            >
-              <LinkedinIcon class="w-5 h-5" />
-            </a>
-          </div>
+          <a
+            href={SOCIAL_LINKS.cv.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar el perfil de GitHub de Erick"
+            class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            <SOCIAL_LINKS.cv.icon class="w-5 h-5" />
+          </a>
+          <a
+            href={SOCIAL_LINKS.github.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar el perfil de GitHub de Erick"
+            class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            <SOCIAL_LINKS.github.icon class="w-5 h-5" />
+          </a>
+          <a
+            href={SOCIAL_LINKS.linkedin.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visitar el perfil de LinkedIn de Erick"
+            class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            <SOCIAL_LINKS.linkedin.icon class="w-5 h-5" />
+          </a>
         </div>
       </div>
       <div class="hidden md:col-span-4 md:flex justify-end items-center">
