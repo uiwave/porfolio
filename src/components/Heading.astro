@@ -8,21 +8,20 @@ interface Props {
 const { badge, title, highlight } = Astro.props;
 ---
 
-<div class="mb-12 sm:mb-16 text-left">
+<div class="mb-8 sm:mb-10 text-left">
   <div
-    class="inline-flex items-center gap-2 px-3 py-1 mb-3 border-2 sm:border-3 border-[#1c1c17] bg-[#f2e7c9] text-[#1c1c17] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-[3px_3px_0px_0px_#1c1c17]"
+    class="inline-flex items-center gap-2 px-2.5 py-0.5 mb-2.5 border-2 border-border bg-primary text-primary-foreground font-bold text-xs uppercase shadow-[2px_2px_0px_0px_var(--border)]"
   >
     {badge}
   </div>
-
   <h2
-    class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1c1c17] uppercase tracking-tight"
+    class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight leading-tight"
   >
     {title}{" "}
     <span
-      class="bg-[#0c4a6e] text-white px-2 py-0.5 inline-block -rotate-1 border-2 sm:border-3 border-[#1c1c17] shadow-[4px_4px_0_0_#1c1c17]"
+      class="bg-primary text-primary-foreground px-2 py-0.5 inline-block border-2 border-border shadow-[3px_3px_0_0_var(--border)] ml-1"
     >
-      {highlight}</span
-    >
+      {highlight}
+    </span>
   </h2>
 </div>

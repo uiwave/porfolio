@@ -1,5 +1,15 @@
 ---
 import Heading from "@/components/Heading.astro";
+const datosContacto = [
+  {
+    label: "Email",
+    valor: "erick@dev.com",
+    href: "mailto:erick@dev.com",
+    emoji: "✉️",
+  },
+  { label: "Ubicación", valor: "Remoto / LATAM", href: null, emoji: "🌍" },
+  { label: "Disponibilidad", valor: "Inmediata", href: null, emoji: "⚡" },
+];
 ---
 
 <section
@@ -7,5 +17,90 @@ import Heading from "@/components/Heading.astro";
 >
   <div class="max-w-6xl mx-auto w-full">
     <Heading badge="📬 Contacto" title="Hablemos de tu" highlight="Proyecto" />
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <div class="lg:col-span-5 flex flex-col gap-3">
+        {
+          datosContacto.map((item) => (
+            <a
+              href={item.href}
+              class="group bg-background border-2 border-border p-4 shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--border)] transition-all"
+            >
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-black uppercase text-primary tracking-wider">
+                    // {item.label}
+                  </span>
+                  <p class="font-black text-base truncate">{item.valor}</p>
+                </div>
+                <span class="text-xl group-hover:scale-110 transition-transform">
+                  {item.emoji}
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <div
+        class="lg:col-span-7 bg-background border-2 border-border p-5 sm:p-6 shadow-[5px_5px_0_0_var(--border)]"
+      >
+        <form action="#" method="POST" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label
+                for="nombre"
+                class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                placeholder="Tu nombre"
+                class="w-full bg-background border-2 border-border p-2.5 text-sm font-medium focus:outline-none focus:bg-background"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="tu@email.com"
+                class="w-full bg-background border-2 border-border p-2.5 text-sm font-medium focus:outline-none focus:bg-background"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="mensaje"
+              class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
+              >Mensaje</label
+            >
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="3"
+              required
+              placeholder="¿En qué puedo ayudarte?"
+              class="w-full bg-background border-2 border-border p-2.5 text-sm font-medium focus:outline-none focus:bg-background resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center w-full h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            Enviar Mensaje 🚀
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
