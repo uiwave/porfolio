@@ -59,8 +59,8 @@ export const FORMACIONES = [
 export const DATOS_CONTACTO = [
   {
     label: "Email",
-    valor: "erick@dev.com",
-    href: "mailto:erick@dev.com",
+    valor: "uiwavedev@gmail.com",
+    href: "uiwavedev@gmail.com",
     emoji: "✉️",
   },
   { label: "Ubicación", valor: "Remoto / LATAM", href: null, emoji: "🌍" },

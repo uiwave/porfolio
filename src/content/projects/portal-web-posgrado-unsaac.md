@@ -1,7 +1,7 @@
 ---
 title: "Portal Escuela de Posgrado UNSAAC"
 description: "Plataforma académica integral para la gestión de matrículas, seguimiento de líneas de investigación, control de notas y postulaciones a maestrías y doctorados."
-tech: ["React", "Next.js", "Tailwind CSS"]
+tech: ["Next.js", "Tailwind CSS"]
 github: "https://github.com/tu-usuario/posgrado-unsaac"
 demo: "https://posgrado-unsaac-demo.com"
 featured: true

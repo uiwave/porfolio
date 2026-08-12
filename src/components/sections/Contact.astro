@@ -9,6 +9,7 @@ import { DATOS_CONTACTO } from "@/const";
 >
   <div class="max-w-6xl mx-auto w-full">
     <Heading badge="📬 Contacto" title="Hablemos de tu" highlight="Proyecto" />
+
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
       <div class="lg:col-span-5 flex flex-col gap-3">
         {
@@ -24,6 +25,7 @@ import { DATOS_CONTACTO } from "@/const";
                   </span>
                   <p class="font-black text-base truncate">{item.valor}</p>
                 </div>
+
                 <span class="text-xl group-hover:scale-110 transition-transform">
                   {item.emoji}
                 </span>
@@ -32,32 +34,38 @@ import { DATOS_CONTACTO } from "@/const";
           ))
         }
       </div>
+
       <div
         class="lg:col-span-7 bg-background border-2 border-border p-5 sm:p-6 shadow-[5px_5px_0_0_var(--border)]"
       >
-        <form action="#" method="POST" class="space-y-4">
+        <form id="contact-form" class="space-y-4">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label
                 for="nombre"
                 class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
-                >Nombre</label
               >
+                Nombre
+              </label>
+
               <input
                 type="text"
                 id="nombre"
-                name="nombre"
+                name="name"
                 required
                 placeholder="Tu nombre"
                 class="w-full bg-background border-2 border-border p-2.5 text-sm font-medium focus:outline-none focus:bg-background"
               />
             </div>
+
             <div>
               <label
                 for="email"
                 class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
-                >Email</label
               >
+                Email
+              </label>
+
               <input
                 type="email"
                 id="email"
@@ -73,11 +81,13 @@ import { DATOS_CONTACTO } from "@/const";
             <label
               for="mensaje"
               class="block text-xs font-black uppercase tracking-wider mb-1.5 text-primary"
-              >Mensaje</label
             >
+              Mensaje
+            </label>
+
             <textarea
               id="mensaje"
-              name="mensaje"
+              name="message"
               rows="3"
               required
               placeholder="¿En qué puedo ayudarte?"
@@ -86,13 +96,84 @@ import { DATOS_CONTACTO } from "@/const";
           </div>
 
           <button
+            id="submit-button"
             type="submit"
-            class="inline-flex items-center justify-center w-full h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            class="inline-flex items-center justify-center w-full h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
           >
             Enviar Mensaje 🚀
           </button>
+
+          <p
+            id="form-message"
+            class="hidden text-sm font-bold text-center"
+            aria-live="polite"
+          >
+          </p>
         </form>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+
+  const submitButton = document.getElementById(
+    "submit-button",
+  ) as HTMLButtonElement | null;
+
+  const formMessage = document.getElementById(
+    "form-message",
+  ) as HTMLParagraphElement | null;
+
+  if (form && submitButton && formMessage) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+
+      formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+
+      formData.append("subject", "Nuevo mensaje desde mi portafolio");
+
+      formData.append("from_name", "Portafolio");
+
+      const originalText = submitButton.textContent;
+
+      submitButton.textContent = "Enviando...";
+      submitButton.disabled = true;
+
+      formMessage.classList.add("hidden");
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          formMessage.textContent = "¡Mensaje enviado correctamente! 🚀";
+
+          formMessage.classList.remove("hidden");
+          form.reset();
+        } else {
+          formMessage.textContent = "Error: " + data.message;
+
+          formMessage.classList.remove("hidden");
+        }
+      } catch {
+        formMessage.textContent = "Ocurrió un error. Inténtalo nuevamente.";
+
+        formMessage.classList.remove("hidden");
+      } finally {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    });
+  }
+</script>
