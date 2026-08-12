@@ -1,15 +1,6 @@
 ---
 import Heading from "@/components/Heading.astro";
-const datosContacto = [
-  {
-    label: "Email",
-    valor: "erick@dev.com",
-    href: "mailto:erick@dev.com",
-    emoji: "✉️",
-  },
-  { label: "Ubicación", valor: "Remoto / LATAM", href: null, emoji: "🌍" },
-  { label: "Disponibilidad", valor: "Inmediata", href: null, emoji: "⚡" },
-];
+import { DATOS_CONTACTO } from "@/const";
 ---
 
 <section
@@ -21,7 +12,7 @@ const datosContacto = [
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
       <div class="lg:col-span-5 flex flex-col gap-3">
         {
-          datosContacto.map((item) => (
+          DATOS_CONTACTO.map((item) => (
             <a
               href={item.href}
               class="group bg-background border-2 border-border p-4 shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_0_var(--border)] transition-all"

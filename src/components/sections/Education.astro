@@ -1,29 +1,6 @@
 ---
 import Heading from "@/components/Heading.astro";
-
-const formaciones = [
-  {
-    institucion: "Universidad Nacional de Ingeniería",
-    titulo: "Ingeniería en Sistemas",
-    periodo: "2016 — 2021",
-    descripcion:
-      "Graduado con especialización en desarrollo de software. Participé en proyectos académicos de arquitectura web, bases de datos distribuidas y metodologías ágiles.",
-  },
-  {
-    institucion: "Bootcamp Full-Stack",
-    titulo: "Desarrollo Web Full-Stack",
-    periodo: "2021 — 2022",
-    descripcion:
-      "Formación intensiva en JavaScript, React, Node.js y bases de datos. Construí proyectos reales de principio a fin con despliegue en producción.",
-  },
-  {
-    institucion: "Certificación Profesional",
-    titulo: "React Avanzado y Arquitectura Frontend",
-    periodo: "2023",
-    descripcion:
-      "Certificación en patrones de diseño de componentes, estado global, testing y rendimiento en aplicaciones React a gran escala.",
-  },
-];
+import { FORMACIONES } from "@/const";
 ---
 
 <section
@@ -38,7 +15,7 @@ const formaciones = [
         aria-hidden="true"
       ></div>
       <div class="flex flex-col gap-6 lg:gap-8">
-        {formaciones.map((formacion) => (
+        {FORMACIONES.map((formacion) => (
           <div class="relative pr-12">
             <span
               class="absolute right-0 top-1.5 w-5 h-5 rotate-45 bg-primary border-2 border-border shadow-[2px_2px_0_0_var(--border)]"

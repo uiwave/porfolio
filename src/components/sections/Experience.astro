@@ -1,29 +1,6 @@
 ---
 import Heading from "@/components/Heading.astro";
-
-const experiencias = [
-  {
-    empresa: "midudev",
-    puesto: "Divulgador sobre Programación Web",
-    periodo: "2021 — Actual",
-    descripcion:
-      "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
-  },
-  {
-    empresa: "Adevinta",
-    puesto: "Lead Frontend Architect",
-    periodo: "2016 — 2022",
-    descripcion:
-      "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
-  },
-  {
-    empresa: "Hubii",
-    puesto: "Senior FrontEnd Developer",
-    periodo: "2011 — 2016",
-    descripcion:
-      "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
-  },
-];
+import { EXPERIENCIAS } from "@/const";
 ---
 
 <section
@@ -38,7 +15,7 @@ const experiencias = [
         aria-hidden="true"
       ></div>
       <div class="flex flex-col gap-6 lg:gap-8">
-        {experiencias.map((exp) => (
+        {EXPERIENCIAS.map((exp) => (
           <div class="relative pl-12">
             <span
               class="absolute left-0 top-1.5 w-5 h-5 rotate-45 bg-primary border-2 border-border shadow-[2px_2px_0_0_var(--border)]"

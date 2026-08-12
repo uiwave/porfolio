@@ -1,42 +1,6 @@
 ---
 import Heading from "@/components/Heading.astro";
-import ReactIcon from "@/assets/icons/react.svg";
-import AstroIcon from "@/assets/icons/astro.svg";
-import NextjsIcon from "@/assets/icons/nextjs.svg";
-import SvelteIcon from "@/assets/icons/svelte.svg";
-import VueIcon from "@/assets/icons/vuedotjs.svg";
-import AngularIcon from "@/assets/icons/angular.svg";
-import GithubIcon from "@/assets/icons/github.svg";
-import LinkedinIcon from "@/assets/icons/linkedin.svg";
-import CVIcon from "@/assets/icons/readdotcv.svg";
-
-const fila1 = [
-  ReactIcon,
-  AstroIcon,
-  NextjsIcon,
-  SvelteIcon,
-  VueIcon,
-  AngularIcon,
-  GithubIcon,
-  LinkedinIcon,
-  CVIcon,
-];
-const fila2 = [
-  VueIcon,
-  AngularIcon,
-  ReactIcon,
-  SvelteIcon,
-  AstroIcon,
-  NextjsIcon,
-  LinkedinIcon,
-  GithubIcon,
-  CVIcon,
-];
-
-const filas = [
-  { iconos: fila1, tipo: "derecha", duracion: "60s" },
-  { iconos: fila2, tipo: "izquierda", duracion: "50s" },
-];
+import { SKILLS_ROWS } from "@/const";
 ---
 
 <section
@@ -45,7 +9,7 @@ const filas = [
 >
   <div class="max-w-6xl mx-auto w-full">
     <div class="flex flex-col gap-6 sm:gap-8">
-      {filas.map((fila) => (
+      {SKILLS_ROWS.map((fila) => (
         <div class="marquee-row relative overflow-hidden">
           <div
             class="absolute inset-y-0 left-0 w-16 md:w-32 z-10 pointer-events-none bg-linear-to-r from-background to-transparent"
