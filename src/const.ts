@@ -38,49 +38,21 @@ export const NAV_ITEMS = [
 
 export const EXPERIENCIAS = [
   {
-    empresa: "midudev",
-    puesto: "Divulgador sobre Programación Web",
-    periodo: "2021 — Actual",
+    empresa: "Freelance",
+    puesto: "Desarrollador de Software",
+    periodo: "2024 — Actualidad",
     descripcion:
-      "Streamer de programación más visto en Español en Twitch. +1 millón de seguidores entre todas mis redes sociales. Reconocido por Google, Microsoft y GitHub por mi impacto en la comunidad de desarrolladores.",
-  },
-  {
-    empresa: "Adevinta",
-    puesto: "Lead Frontend Architect",
-    periodo: "2016 — 2022",
-    descripcion:
-      "Lideré una convergencia técnica entre diferentes productos y migramos una arquitectura monolítica a otra más flexible y optimizada. Fomenté buenas prácticas y mejoras en la cultura de rendimiento, además de la entrega rápida de valor a los usuarios.",
-  },
-  {
-    empresa: "Hubii",
-    puesto: "Senior FrontEnd Developer",
-    periodo: "2011 — 2016",
-    descripcion:
-      "Desarrollé una plataforma de noticias geolocalizadas y una API para consumir la información. Escalé los servicios para soportar la carga de más de cientos de miles de peticiones al día. Recorté los tiempos de entrega y despliegues a producción a la mitad. Colaboré con Mozilla y Telefónica para desarrollar la primera app para televisores con FirefoxOS.",
+      "Desarrollo aplicaciones web modernas y soluciones de software a medida, participando en el análisis, diseño, desarrollo y despliegue de proyectos. Trabajo con tecnologías como React, TypeScript, Next.js, Astro, Java y Spring Boot, aplicando buenas prácticas de desarrollo y arquitecturas escalables.",
   },
 ] as const;
 
 export const FORMACIONES = [
   {
-    institucion: "Universidad Nacional de Ingeniería",
-    titulo: "Ingeniería en Sistemas",
-    periodo: "2016 — 2021",
+    institucion: "Universidad Nacional de San Antonio Abad del Cusco",
+    titulo: "Ingeniería Informática",
+    periodo: "2018 — 2026",
     descripcion:
-      "Graduado con especialización en desarrollo de software. Participé en proyectos académicos de arquitectura web, bases de datos distribuidas y metodologías ágiles.",
-  },
-  {
-    institucion: "Bootcamp Full-Stack",
-    titulo: "Desarrollo Web Full-Stack",
-    periodo: "2021 — 2022",
-    descripcion:
-      "Formación intensiva en JavaScript, React, Node.js y bases de datos. Construí proyectos reales de principio a fin con despliegue en producción.",
-  },
-  {
-    institucion: "Certificación Profesional",
-    titulo: "React Avanzado y Arquitectura Frontend",
-    periodo: "2023",
-    descripcion:
-      "Certificación en patrones de diseño de componentes, estado global, testing y rendimiento en aplicaciones React a gran escala.",
+      "Formación universitaria orientada al desarrollo de software, ingeniería de sistemas, bases de datos, arquitectura de aplicaciones y desarrollo de soluciones tecnológicas.",
   },
 ] as const;
 
