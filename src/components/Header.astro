@@ -1,0 +1,164 @@
+---
+import { SOCIAL_LINKS } from "@/const";
+
+const navItems = [
+  { nombre: "Inicio", href: "#inicio" },
+  { nombre: "Experiencia", href: "#experiencia" },
+  { nombre: "Formación", href: "#formacion" },
+  { nombre: "Proyectos", href: "#proyectos" },
+  { nombre: "Contacto", href: "#contacto" },
+];
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 lg:px-12 py-4 pointer-events-none transition-colors duration-200"
+>
+  <div
+    class="max-w-6xl mx-auto flex items-center justify-between gap-3 pointer-events-auto"
+  >
+    <a
+      href="#inicio"
+      class="group relative inline-flex items-center gap-3 focus:outline-none"
+      aria-label="Inicio"
+    >
+      <div
+        class="relative flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 bg-primary border-2 border-border shadow-[4px_4px_0_0_var(--border)] transition-all duration-200 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[6px_6px_0_0_var(--border)] group-hover:bg-foreground"
+      >
+        <span
+          class="font-black text-2xl sm:text-3xl text-primary-foreground tracking-tighter select-none -rotate-3 transition-transform duration-200 group-hover:rotate-0"
+        >
+          E
+        </span>
+        <span
+          class="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-primary-foreground border-2 border-border rounded-full"
+          aria-hidden="true"
+        ></span>
+      </div>
+
+      <div
+        class="hidden sm:flex flex-col text-left bg-background border-2 border-border px-2.5 py-0.5 shadow-[3px_3px_0_0_var(--border)]"
+      >
+        <span
+          class="font-black text-sm text-foreground uppercase tracking-tight leading-none"
+        >
+          Erick<span class="text-primary">.dev</span>
+        </span>
+        <span
+          class="text-[9px] font-extrabold text-foreground/70 uppercase tracking-widest leading-none mt-0.5"
+        >
+          Frontend / FS
+        </span>
+      </div>
+    </a>
+
+    <nav
+      class="hidden lg:flex items-center gap-1 lg:gap-2 bg-background border-2 border-border p-1.5 shadow-[5px_5px_0_0_var(--border)]"
+      aria-label="Navegación principal"
+    >
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="px-3 py-1.5 font-black text-xs lg:text-sm text-foreground uppercase tracking-wider transition-all duration-150 border-2 border-transparent hover:bg-foreground hover:text-background hover:border-border"
+        >
+          {item.nombre}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a
+        href={SOCIAL_LINKS.cv.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Descargar el CV de Erick"
+        class="inline-flex items-center justify-center gap-2 px-2.5 lg:px-4 h-10 bg-primary border-2 border-border text-primary-foreground font-bold text-sm uppercase shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      >
+        <SOCIAL_LINKS.cv.icon class="w-4 h-4" />
+        <span class="hidden lg:inline">CV</span>
+      </a>
+
+      <a
+        href="#contacto"
+        class="hidden sm:inline-flex items-center justify-center w-10 h-10 bg-primary border-2 border-border text-primary-foreground font-black text-base uppercase shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 lg:hidden"
+        aria-label="Ir a la sección de contacto"
+      >
+        ⚡
+      </a>
+
+      <a
+        href="#contacto"
+        class="hidden lg:inline-flex items-center justify-center border-2 border-border bg-primary px-4 py-2 font-black text-xs sm:text-sm text-primary-foreground uppercase tracking-wider shadow-[4px_4px_0_0_var(--border)] transition-all duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+      >
+        ¡Contrátame! ⚡
+      </a>
+
+      <button
+        id="menu-btn"
+        class="md:hidden lg:hidden flex flex-col justify-center items-center w-11 h-11 bg-background border-2 border-border shadow-[4px_4px_0_0_var(--border)] active:shadow-none transition-all duration-150 focus:outline-none gap-1.5"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="w-6 h-0.5 bg-foreground"></span>
+        <span class="w-6 h-0.5 bg-foreground"></span>
+        <span class="w-6 h-0.5 bg-foreground"></span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden max-w-6xl mx-auto mt-3 bg-background border-2 border-border p-4 shadow-[6px_6px_0_0_var(--border)] pointer-events-auto flex-col gap-2"
+  >
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class="block px-4 py-2 font-black text-sm text-background uppercase bg-foreground border-2 border-border shadow-[2px_2px_0_0_var(--border)] hover:bg-primary hover:text-primary-foreground transition-colors"
+      >
+        {item.nombre}
+      </a>
+    ))}
+    <a
+      href={SOCIAL_LINKS.cv.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Descargar el CV de Erick"
+      class="inline-flex items-center justify-center gap-2 px-4 h-10 w-full bg-primary border-2 border-border text-primary-foreground font-bold text-sm uppercase shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
+    >
+      <SOCIAL_LINKS.cv.icon class="w-4 h-4" />
+      CV
+    </a>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navItems = mobileMenu?.querySelectorAll("a");
+
+  menuBtn?.addEventListener("click", () => {
+    const oculto = mobileMenu?.classList.toggle("hidden") ?? false;
+    mobileMenu?.classList.toggle("flex", !oculto);
+    menuBtn?.setAttribute("aria-expanded", String(!oculto));
+  });
+
+  navItems?.forEach((enlace) => {
+    enlace.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+      mobileMenu?.classList.remove("flex");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  const activarFondo = () => {
+    const scrolled = window.scrollY > 12;
+    header?.classList.toggle("bg-background", scrolled);
+    header?.classList.toggle("border-b-2", scrolled);
+    header?.classList.toggle("border-border", scrolled);
+  };
+
+  window.addEventListener("scroll", activarFondo, { passive: true });
+  activarFondo();
+</script>
