@@ -32,6 +32,21 @@
   --border: oklch(22.128% 0.00749 196.81);
   --primary-foreground: oklch(98.511% 0.00011 271.152);
   --primary: oklch(39.124% 0.08457 240.9);
+
+  --grid: oklch(78.82% 0.0199 90.31);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --background: oklch(17.94% 0.0088 258.28);
+  --foreground: oklch(95.41% 0.0055 258.28);
+
+  --border: oklch(99.655% 0.00181 249.268);
+  --primary-foreground: oklch(98.32% 0.002 271.152);
+  --primary: oklch(39.124% 0.08457 240.9);
+
+  --grid: oklch(28.71% 0.011 258.28);
+  color-scheme: dark;
 }
 
 @theme inline {
