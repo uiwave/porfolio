@@ -2,14 +2,31 @@
 import { Image } from "astro:assets";
 import profileImage from "@/assets/imgs/profile.jpg";
 import { SOCIAL_LINKS } from "@/const";
+import TerminalCard from "@/components/TerminalCard.astro";
 ---
 
 <section
   id="inicio"
-  class="relative w-full overflow-hidden px-4 sm:px-6 lg:px-12 pt-30 pb-10 "
+  class="relative w-full overflow-hidden px-4 sm:px-6 lg:px-12 pt-36 sm:pt-40 pb-16 sm:pb-24"
   aria-label="Introducción profesional"
 >
-  <div class="max-w-6xl mx-auto w-full z-10">
+  <div class="max-w-6xl mx-auto w-full relative">
+    <span
+      class="absolute -top-12 -left-2 hidden md:block text-5xl font-black text-accent-pink select-none"
+      aria-hidden="true"
+      >+</span
+    >
+    <span
+      class="absolute -top-14 right-8 hidden md:block text-6xl font-black text-accent-yellow select-none"
+      aria-hidden="true"
+      >✱</span
+    >
+    <span
+      class="absolute bottom-4 left-1/3 hidden md:block text-4xl font-black text-primary select-none"
+      aria-hidden="true"
+      >✕</span
+    >
+
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
       <div class="md:col-span-8 flex flex-col items-start">
         <div
@@ -27,7 +44,7 @@ import { SOCIAL_LINKS } from "@/const";
           Disponible para nuevos proyectos
         </div>
         <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.2] text-accent mb-4 uppercase tracking-tight"
+          class="text-5xl sm:text-6xl md:text-7xl font-black leading-[1.05] text-accent mb-6 uppercase tracking-tight"
         >
           Hola, soy <span class="text-primary">Erick</span><br />
           <span
@@ -37,30 +54,50 @@ import { SOCIAL_LINKS } from "@/const";
           </span>{" "}
           <span class="inline-block mt-2">Developer</span>
         </h1>
+        <span
+          class="inline-block -rotate-3 mb-6 border-[3px] border-border bg-accent-yellow text-foreground px-3 py-1 text-xs font-black uppercase shadow-[3px_3px_0_0_var(--border)]"
+        >
+          UI/UX ✦
+        </span>
         <p
-          class="mb-6 text-base md:text-lg font-medium leading-relaxed max-w-xl"
+          class="mb-4 text-lg md:text-xl font-medium leading-relaxed max-w-2xl"
         >
           +2 años de experiencia construyendo aplicaciones web{" "}
           <strong
-            class="underline decoration-primary decoration-3 underline-offset-2"
+            class="underline decoration-accent-yellow decoration-4 underline-offset-4"
           >
             modernas y escalables
           </strong>. Me enfoco en resolver problemas reales con código limpio y
           UI/UX intuitivo.
         </p>
-        <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+        <p
+          class="mb-8 font-mono text-sm sm:text-base font-bold text-foreground"
+        >
+          <span class="text-primary font-black select-none">&gt;</span>{" "}
+          desarrollando desde Cusco, Perú
+          <span
+            class="blink inline-block w-2.5 h-4 bg-accent-yellow border-2 border-border align-middle ml-1.5"
+            aria-hidden="true"
+          ></span>
+        </p>
+        <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
           <a
             href="#proyectos"
-            class="inline-flex items-center justify-center px-6 h-12 bg-primary border-2 border-border text-primary-foreground font-bold text-sm uppercase shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            class="group inline-flex items-center justify-center gap-2 px-7 h-13 bg-primary border-[3px] border-border text-primary-foreground font-bold text-sm uppercase shadow-[6px_6px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Ver Proyectos
+            <span
+              class="inline-block transition-transform duration-150 group-hover:translate-x-1"
+              aria-hidden="true"
+              >→</span
+            >
           </a>
           <a
             href={SOCIAL_LINKS.github.href}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visitar el perfil de GitHub de Erick"
-            class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            class="inline-flex items-center justify-center w-13 h-13 bg-primary border-[3px] border-border text-primary-foreground shadow-[6px_6px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <SOCIAL_LINKS.github.icon class="w-5 h-5" />
           </a>
@@ -69,16 +106,40 @@ import { SOCIAL_LINKS } from "@/const";
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visitar el perfil de LinkedIn de Erick"
-            class="inline-flex items-center justify-center w-12 h-12 bg-primary border-2 border-border text-primary-foreground shadow-[5px_5px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[7px_7px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            class="inline-flex items-center justify-center w-13 h-13 bg-primary border-[3px] border-border text-primary-foreground shadow-[6px_6px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             <SOCIAL_LINKS.linkedin.icon class="w-5 h-5" />
           </a>
         </div>
+        <span
+          class="mt-7 inline-block rotate-2 border-2 border-border bg-accent-pink text-foreground px-3 py-1 text-[10px] font-black uppercase tracking-widest shadow-[3px_3px_0_0_var(--border)]"
+        >
+          ✍ Desarrollado a mano
+        </span>
       </div>
-      <div class="hidden md:col-span-4 md:flex justify-end items-center">
-        <div class="relative w-64 h-64 lg:w-72 lg:h-72 group">
+      <div
+        class="hidden md:col-span-4 md:flex flex-col items-end justify-center gap-10"
+      >
+        <div class="relative w-72 h-72 lg:w-80 lg:h-80 group">
+          <svg
+            viewBox="0 0 96 64"
+            class="absolute -left-32 top-8 w-24 h-16 -rotate-6 z-20 hidden xl:block"
+            aria-hidden="true"
+          >
+            <path
+              d="M6 30 H74 V18 L92 32 L74 46 V34 H6 V30 Z"
+              fill="var(--accent-yellow)"
+              stroke="var(--border)"
+              stroke-width="3"
+              stroke-linejoin="miter"
+            />
+          </svg>
+          <span
+            class="absolute -top-3 left-1/2 -translate-x-1/2 z-10 w-24 h-7 -rotate-6 bg-accent-yellow border-2 border-border shadow-[2px_2px_0_0_var(--border)]"
+            aria-hidden="true"
+          ></span>
           <div
-            class="relative w-full h-full border-3 border-border shadow-[6px_6px_0_0_var(--border)] overflow-hidden transition-all duration-300 group-hover:shadow-[10px_10px_0_0_var(--border)]"
+            class="dashed-frame relative w-full h-full border-[3px] border-border shadow-[8px_8px_0_0_var(--border)] overflow-hidden transition-all duration-300 group-hover:shadow-[12px_12px_0_0_var(--border)]"
           >
             <div class="absolute inset-0 flex items-start justify-center">
               <Image
@@ -94,7 +155,23 @@ import { SOCIAL_LINKS } from "@/const";
               />
             </div>
           </div>
+          <span
+            class="absolute -left-4 -bottom-4 z-10 -rotate-6 border-2 border-border bg-background px-2.5 py-1 text-[10px] font-black uppercase shadow-[3px_3px_0_0_var(--border)]"
+          >
+            React
+          </span>
+          <span
+            class="absolute -right-4 -top-5 z-10 rotate-3 border-2 border-border bg-accent-yellow px-2.5 py-1 text-[10px] font-black uppercase shadow-[3px_3px_0_0_var(--border)]"
+          >
+            Astro ⚡
+          </span>
+          <span
+            class="absolute -right-8 bottom-10 z-10 rotate-2 border-2 border-border bg-background px-2.5 py-1 text-[10px] font-black uppercase shadow-[3px_3px_0_0_var(--border)]"
+          >
+            Next.js
+          </span>
         </div>
+        <TerminalCard />
       </div>
     </div>
   </div>

@@ -95,3 +95,10 @@ export const SKILLS_ROWS = [
   { iconos: fila1, tipo: "derecha", duracion: "60s" },
   { iconos: fila2, tipo: "izquierda", duracion: "50s" },
 ] as const;
+
+export const ESTADISTICAS = [
+  { valor: "2+", etiqueta: "Años de experiencia" },
+  { valor: "2", etiqueta: "Proyectos publicados" },
+  { valor: "10+", etiqueta: "Tecnologías dominadas" },
+  { valor: "Inmediata", etiqueta: "Disponibilidad" },
+] as const;

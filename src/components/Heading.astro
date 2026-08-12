@@ -8,14 +8,25 @@ interface Props {
 const { badge, title, highlight } = Astro.props;
 ---
 
-<div class="mb-8 sm:mb-10 text-left">
-  <div
-    class="inline-flex items-center gap-2 px-2.5 py-0.5 mb-2.5 border-2 border-border bg-primary text-primary-foreground font-bold text-xs uppercase shadow-[2px_2px_0px_0px_var(--border)]"
+<div class="relative mb-10 sm:mb-14 text-left">
+  <span
+    class="absolute -right-2 top-0 text-7xl sm:text-8xl font-black text-primary opacity-[0.08] select-none pointer-events-none hidden md:block"
+    aria-hidden="true"
+    >*</span
   >
-    {badge}
+  <div class="relative inline-flex">
+    <span
+      class="absolute -top-2 left-1/2 -translate-x-1/2 -rotate-3 w-20 h-5 bg-accent-yellow border-2 border-border shadow-[2px_2px_0_0_var(--border)]"
+      aria-hidden="true"
+    ></span>
+    <div
+      class="relative inline-flex items-center gap-2 px-2.5 py-0.5 mb-3 border-2 border-border bg-primary text-primary-foreground font-bold text-xs uppercase shadow-[2px_2px_0px_0px_var(--border)]"
+    >
+      {badge}
+    </div>
   </div>
   <h2
-    class="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight leading-tight"
+    class="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight"
   >
     {title}{" "}
     <span
@@ -24,4 +35,8 @@ const { badge, title, highlight } = Astro.props;
       {highlight}
     </span>
   </h2>
+  <div
+    class="stripe-bar mt-4 h-2.5 w-full max-w-md border-y-2 border-border"
+    aria-hidden="true"
+  ></div>
 </div>

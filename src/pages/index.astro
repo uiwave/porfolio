@@ -1,18 +1,26 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/sections/Hero.astro";
+import TextMarquee from "@/components/TextMarquee.astro";
+import Stats from "@/components/sections/Stats.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Education from "@/components/sections/Education.astro";
 import Skills from "@/components/sections/Skills.astro";
 import Projects from "@/components/sections/Projects.astro";
 import Contact from "@/components/sections/Contact.astro";
+import SectionDivider from "@/components/SectionDivider.astro";
 ---
 
 <Layout>
   <Hero />
+  <TextMarquee />
+  <Stats />
   <Skills />
+  <SectionDivider simbolo="✱" />
   <Experience />
   <Education />
+  <SectionDivider simbolo="◆" />
   <Projects />
+  <SectionDivider simbolo="✕" />
   <Contact />
 </Layout>

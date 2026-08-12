@@ -1,0 +1,50 @@
+---
+const FRASES = [
+  "Full-Stack Developer",
+  "UI/UX",
+  "Código Limpio",
+  "Soluciones Reales",
+  "React",
+  "TypeScript",
+  "Astro",
+  "Next.js",
+];
+---
+
+<div
+  class="relative w-full bg-primary border-y-[3px] border-border overflow-hidden py-3 sm:py-4 select-none"
+  aria-hidden="true"
+>
+  <div class="flex w-max marquee-texto">
+    {[...FRASES, ...FRASES].map((frase) => (
+      <span class="flex items-center gap-6 sm:gap-10 px-3 sm:px-5 whitespace-nowrap">
+        <span
+          class="text-lg sm:text-2xl font-black uppercase tracking-wider text-primary-foreground"
+          >{frase}</span
+        >
+        <span class="text-accent-yellow text-xl sm:text-2xl font-black">✱</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes marquee-texto {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-texto {
+    animation: marquee-texto 32s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-texto {
+      animation: none;
+    }
+  }
+</style>

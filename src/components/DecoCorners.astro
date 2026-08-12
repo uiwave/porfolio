@@ -1,0 +1,30 @@
+---
+interface Decoracion {
+  simbolo: string;
+  color: string;
+  pos: string;
+  tamano: string;
+}
+
+interface Props {
+  decoraciones: Decoracion[];
+}
+
+const { decoraciones } = Astro.props;
+---
+
+{
+  decoraciones.map((d) => (
+    <span
+      class:list={[
+        d.pos,
+        "absolute select-none pointer-events-none hidden lg:block font-black",
+        d.color,
+        d.tamano,
+      ]}
+      aria-hidden="true"
+    >
+      {d.simbolo}
+    </span>
+  ))
+}
