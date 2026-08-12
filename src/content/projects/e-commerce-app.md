@@ -6,6 +6,7 @@ github: "https://github.com/tu-usuario/e-commerce-app"
 demo: "https://e-commerce-demo.com"
 featured: true
 img: "/imgs/profile.jpg"
+categoria: "E-Commerce"
 ---
 
 Plataforma de e-commerce construida con arquitectura de microservicios.
