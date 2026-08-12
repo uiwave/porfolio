@@ -10,23 +10,40 @@ import GithubIcon from "@/assets/icons/github.svg";
 import LinkedinIcon from "@/assets/icons/linkedin.svg";
 import CVIcon from "@/assets/icons/readdotcv.svg";
 
-const fila1 = [ReactIcon, AstroIcon, NextjsIcon];
-const fila2 = [SvelteIcon, VueIcon, AngularIcon];
-const fila3 = [GithubIcon, LinkedinIcon, CVIcon];
+const fila1 = [
+  ReactIcon,
+  AstroIcon,
+  NextjsIcon,
+  SvelteIcon,
+  VueIcon,
+  AngularIcon,
+  GithubIcon,
+  LinkedinIcon,
+  CVIcon,
+];
+const fila2 = [
+  VueIcon,
+  AngularIcon,
+  ReactIcon,
+  SvelteIcon,
+  AstroIcon,
+  NextjsIcon,
+  LinkedinIcon,
+  GithubIcon,
+  CVIcon,
+];
 
 const filas = [
-  { iconos: fila1, tipo: "derecha", duracion: "45s" },
-  { iconos: fila2, tipo: "izquierda", duracion: "35s" },
-  { iconos: fila3, tipo: "derecha", duracion: "55s" },
+  { iconos: fila1, tipo: "derecha", duracion: "60s" },
+  { iconos: fila2, tipo: "izquierda", duracion: "50s" },
 ];
 ---
 
 <section
   id="skills"
-  class="relative w-full pt-16 sm:pt-24 px-4 sm:px-6 lg:px-12 overflow-hidden"
+  class="relative w-full pt-16 sm:pt-24 overflow-hidden"
 >
-  <div class="max-w-6xl mx-auto w-full">
-    <Heading badge="🛠️ Habilidades" title="Stack" highlight="Tecnológico" />
+  <div class="w-full">
     <div class="flex flex-col gap-6 sm:gap-8">
       {filas.map((fila) => (
         <div class="marquee-row relative overflow-hidden">
@@ -45,7 +62,7 @@ const filas = [
             ]}
             style={`animation-duration: ${fila.duracion};`}
           >
-            {[...[...Array(5)].flatMap(() => fila.iconos), ...[...Array(5)].flatMap(() => fila.iconos)].map(
+            {[...fila.iconos, ...fila.iconos, ...fila.iconos, ...fila.iconos].map(
               (Icono, index) => (
                 <div class="px-3 sm:px-4 group">
                   <div
