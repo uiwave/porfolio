@@ -1,24 +1,15 @@
 ---
+import Logo from "@/components/Logo.astro";
 import { SOCIAL_LINKS } from "@/const";
 
 const anioActual = new Date().getFullYear();
 ---
 
-<footer class="bg-primary text-primary-foreground border-t-2 border-border px-4 sm:px-6 lg:px-12  ">
+<footer class="bg-background text-foreground border-t-2 border-border px-4 sm:px-6 lg:px-12  ">
   <div class="max-w-6xl mx-auto w-full py-10 sm:py-12">
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
       <div class="md:col-span-7 flex flex-col gap-3">
-        <a
-          href="#inicio"
-          class="inline-flex items-center gap-2 font-black text-lg sm:text-xl uppercase tracking-tight"
-          aria-label="Volver al inicio"
-        >
-          <span
-            class="w-4 h-4 rotate-45 bg-background border-2 border-border"
-            aria-hidden="true"
-          ></span>
-          ERICK
-        </a>
+        <Logo />
         <p class="max-w-md text-sm font-medium leading-relaxed">
           Full-Stack Developer construyendo aplicaciones web modernas y
           escalables con foco en código limpio y UI/UX intuitivo.
@@ -31,7 +22,7 @@ const anioActual = new Date().getFullYear();
             target="_blank"
             rel="noopener noreferrer"
             aria-label={SOCIAL_LINKS.github.label}
-            class="inline-flex items-center justify-center w-11 h-11 bg-background border-2 border-border text-foreground shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
+            class="inline-flex items-center justify-center w-11 h-11 bg-primary border-2 border-border text-primary-foreground shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
           >
             <SOCIAL_LINKS.github.icon class="w-5 h-5" />
           </a>
@@ -40,7 +31,7 @@ const anioActual = new Date().getFullYear();
             target="_blank"
             rel="noopener noreferrer"
             aria-label={SOCIAL_LINKS.linkedin.label}
-            class="inline-flex items-center justify-center w-11 h-11 bg-background border-2 border-border text-foreground shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
+            class="inline-flex items-center justify-center w-11 h-11 bg-primary border-2 border-border text-primary-foreground shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150"
           >
             <SOCIAL_LINKS.linkedin.icon class="w-5 h-5" />
           </a>
@@ -56,11 +47,6 @@ const anioActual = new Date().getFullYear();
       <p class="text-xs font-bold uppercase tracking-wider">
         Hecho con Astro 🚀
       </p>
-      <a
-        href="#inicio"
-        class="text-xs font-black uppercase tracking-wider underline underline-offset-4 hover:opacity-80 transition-opacity"
-        >Volver arriba ↑</a
-      >
     </div>
   </div>
 </footer>

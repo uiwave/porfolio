@@ -1,0 +1,50 @@
+---
+---
+
+<button
+  id="volver-arriba"
+  type="button"
+  aria-label="Volver arriba"
+  class="fixed bottom-6 right-6 z-40 flex items-center justify-center w-12 h-12 bg-background border-2 border-border text-foreground shadow-[4px_4px_0_0_var(--border)] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_var(--border)] active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 overflow-hidden"
+>
+  <span
+    id="relleno-progreso"
+    class="absolute inset-x-0 bottom-0 bg-primary transition-[height] duration-100 ease-linear"
+    style="height: 0%"
+    aria-hidden="true"
+  ></span>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="3"
+    stroke-linecap="square"
+    class="relative w-5 h-5"
+    aria-hidden="true"
+  >
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+</button>
+
+<script>
+  const boton = document.getElementById("volver-arriba");
+  const relleno = document.getElementById("relleno-progreso");
+
+  const actualizar = () => {
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const progreso = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+
+    if (relleno) {
+      relleno.style.height = `${progreso * 100}%`;
+    }
+  };
+
+  boton?.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", actualizar, { passive: true });
+  window.addEventListener("resize", actualizar);
+  actualizar();
+</script>
