@@ -1,0 +1,107 @@
+---
+import Heading from "@/components/Heading.astro";
+import ReactIcon from "@/assets/icons/react.svg";
+import AstroIcon from "@/assets/icons/astro.svg";
+import NextjsIcon from "@/assets/icons/nextjs.svg";
+import SvelteIcon from "@/assets/icons/svelte.svg";
+import VueIcon from "@/assets/icons/vuedotjs.svg";
+import AngularIcon from "@/assets/icons/angular.svg";
+import GithubIcon from "@/assets/icons/github.svg";
+import LinkedinIcon from "@/assets/icons/linkedin.svg";
+import CVIcon from "@/assets/icons/readdotcv.svg";
+
+const fila1 = [ReactIcon, AstroIcon, NextjsIcon];
+const fila2 = [SvelteIcon, VueIcon, AngularIcon];
+const fila3 = [GithubIcon, LinkedinIcon, CVIcon];
+
+const filas = [
+  { iconos: fila1, tipo: "derecha", duracion: "45s" },
+  { iconos: fila2, tipo: "izquierda", duracion: "35s" },
+  { iconos: fila3, tipo: "derecha", duracion: "55s" },
+];
+---
+
+<section
+  id="skills"
+  class="relative w-full pt-16 sm:pt-24 px-4 sm:px-6 lg:px-12 overflow-hidden"
+>
+  <div class="max-w-6xl mx-auto w-full">
+    <Heading badge="🛠️ Habilidades" title="Stack" highlight="Tecnológico" />
+    <div class="flex flex-col gap-6 sm:gap-8">
+      {filas.map((fila) => (
+        <div class="marquee-row relative overflow-hidden">
+          <div
+            class="absolute inset-y-0 left-0 w-16 md:w-32 z-10 pointer-events-none bg-gradient-to-r from-background to-transparent"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="absolute inset-y-0 right-0 w-16 md:w-32 z-10 pointer-events-none bg-gradient-to-l from-background to-transparent"
+            aria-hidden="true"
+          ></div>
+          <div
+            class:list={[
+              "marquee-track flex w-max",
+              fila.tipo === "derecha" ? "marquee-derecha" : "marquee-izquierda",
+            ]}
+            style={`animation-duration: ${fila.duracion};`}
+          >
+            {[...[...Array(5)].flatMap(() => fila.iconos), ...[...Array(5)].flatMap(() => fila.iconos)].map(
+              (Icono, index) => (
+                <div class="px-3 sm:px-4 group">
+                  <div
+                    class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-background border-2 border-border shadow-[4px_4px_0_0_var(--border)] transition-all duration-150 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:shadow-[6px_6px_0_0_var(--border)]"
+                  >
+                    <Icono class="w-10 h-10 sm:w-12 sm:h-12 text-foreground transition-colors duration-150 group-hover:text-primary" />
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee-derecha {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes marquee-izquierda {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-track {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .marquee-derecha {
+    animation-name: marquee-derecha;
+  }
+
+  .marquee-izquierda {
+    animation-name: marquee-izquierda;
+  }
+
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+</style>
